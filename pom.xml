@@ -99,16 +99,17 @@
 		</plugins>
 	</build>
 
-	<distributionManagement>
+<distributionManagement>
     <repository>
-        <id>nexus</id>
+        <id>maven-releases</id> <!-- MUST match settings.xml -->
         <url>http://10.0.0.11:8081/repository/maven-releases/</url>
     </repository>
     <snapshotRepository>
-        <id>nexus</id>
+        <id>maven-snapshots</id> <!-- MUST match settings.xml -->
         <url>http://10.0.0.11:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
 </distributionManagement>
+
 
 
 </project>
