@@ -6,15 +6,16 @@
 	
 	<modelVersion>4.0.0</modelVersion>
 
-	<version>0.0.7</version>
+	<version>0.0.6</version>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.11</version> <!-- upgraded to fix vulnerabilities -->
-		<relativePath/>
+		<version>3.3.2</version>
+		<relativePath/> 
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>twitter-app</artifactId>
+
 	<name>twitter-app</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -43,7 +44,6 @@
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity6</artifactId>
-			<version>3.1.1.RELEASE</version> <!-- ensure latest stable -->
 		</dependency>
 
 		<dependency>
@@ -51,6 +51,7 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -61,6 +62,18 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Fixed vulnerable dependencies -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>10.1.45</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>6.2.11</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -70,7 +83,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<!-- JaCoCo Maven Plugin -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -94,14 +106,13 @@
 	</build>
 
 	<distributionManagement>
-		<repository>
-			<id>maven-releases</id>
-			<url>http://10.0.0.11:8081/repository/maven-releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>maven-snapshots</id>
-			<url>http://10.0.0.11:8081/repository/maven-snapshots/</url>
-		</snapshotRepository>
+	    <repository>
+	        <id>maven-releases</id>
+	        <url>http://10.0.0.11:8081/repository/maven-releases/</url>
+	    </repository>
+	    <snapshotRepository>
+	        <id>maven-snapshots</id>
+	        <url>http://10.0.0.11:8081/repository/maven-snapshots/</url>
+	    </snapshotRepository>
 	</distributionManagement>
-
 </project>
